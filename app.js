@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const morgan = require("morgan");
 
 // Import Router files
 const bootcampsRouter = require("./routes/bootcamps");
@@ -8,6 +9,11 @@ const bootcampsRouter = require("./routes/bootcamps");
 dotenv.config({ path: "./config/config.env" });
 
 const app = express();
+
+// Dev logging middleware
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 // Routes
 app.use("/api/v1/bootcamps", bootcampsRouter);
