@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
 
+const errorHandler = require("./middleware/error");
 const connectDB = require("./config/db");
 
 // Import Router files
@@ -26,6 +27,9 @@ if (process.env.NODE_ENV === "development") {
 
 // Routes
 app.use("/api/v1/bootcamps", bootcampsRouter);
+
+// Error handler middleware
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
 
