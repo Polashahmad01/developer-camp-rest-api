@@ -8,6 +8,7 @@ const connectDB = require("./config/db");
 
 // Import Router files
 const bootcampsRouter = require("./routes/bootcamps");
+const coursesRouter = require("./routes/courses");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Routes
 app.use("/api/v1/bootcamps", bootcampsRouter);
+app.use("/api/v1/courses", coursesRouter);
 
 // Error handler middleware
 app.use(errorHandler);
