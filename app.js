@@ -11,6 +11,7 @@ const connectDB = require("./config/db");
 // Import Router files
 const bootcampsRouter = require("./routes/bootcamps");
 const coursesRouter = require("./routes/courses");
+const authRouter = require("./routes/auth");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use("/api/v1/bootcamps", bootcampsRouter);
 app.use("/api/v1/courses", coursesRouter);
+app.use("/api/v1/auth", authRouter);
 
 // Error handler middleware
 app.use(errorHandler);
