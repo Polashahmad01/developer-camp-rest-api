@@ -15,7 +15,7 @@ const errorHandler = (error, req, res, next) => {
 
   // Mongoose invalid object id
   if (error.name === "CastError") {
-    const message = `Resource not found with id of ${error.value}`;
+    const message = `Resource not found`;
     errorCopy = new ErrorResponse(message, 400);
   }
 
